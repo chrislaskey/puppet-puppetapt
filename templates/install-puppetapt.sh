@@ -2,12 +2,8 @@
 
 this_file=`basename "$0"`
 deb_file_url="<%= deb_file_url %>"
-# deb_file_url="http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb"
 deb_file_name="<%= deb_file_name %>"
-# deb_file_name="puppetlabs-release-wheezy.deb"
-deb_file_dir="/tmp/"
-deb_file_path="${deb_file_dir}${deb_file_name}"
-apt_source_file="/etc/apt/sources.list.d/puppetlabs.list"
+deb_file_path="/tmp/${deb_file_name}"
 
 set -o nounset
 set -o errtrace
@@ -23,10 +19,6 @@ log () {
 error () {
 	log "ERROR: " "$*\n"
 	exit 1
-}
-
-help () {
-	echo "Usage is './${this_file} <project-name>'"
 }
 
 verify_root_privileges () {
