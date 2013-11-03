@@ -1,0 +1,7 @@
+name 'puppetapt'
+version '0.1.0'
+author 'Chris Laskey'
+summary 'Adds Puppet Labs apt repositories'
+description 'Adds Puppet Labs apt repositories (http://apt.puppetlabs.com/) to apt sources list.'
+license 'MIT License (http://opensource.org/licenses/MIT)'
+project_page 'http://github.com/chrislaskey'
