@@ -9,11 +9,13 @@ class puppetapt (
 		$deb_file_name = "puppetlabs-release-${release}.deb"
 		$deb_file_url = "http://apt.puppetlabs.com/${deb_file_name}"
 
-		file { "/etc/puppet/scripts":
-			ensure => "directory",
-			owner => "puppet",
-			group => "puppet",
-			mode => "0700",
+		if ! defined( File["/etc/puppet/scripts"] ){
+			file { "/etc/puppet/scripts":
+				ensure => "directory",
+				owner => "puppet",
+				group => "puppet",
+				mode => "0700",
+			}
 		}
 
 		file { "/etc/puppet/scripts/install-puppetapt.sh":
