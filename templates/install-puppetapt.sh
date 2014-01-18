@@ -45,6 +45,14 @@ exit_if_already_completed () {
 	fi
 }
 
+remove_old_deb_file () {
+	if test -f "$deb_file_path"; then
+		if ! rm "$deb_file_path"; then
+			error "Failed to remove old deb file ${deb_file_path}"
+		fi
+	fi
+}
+
 get_deb_file () {
 	if ! wget -P "$deb_file_dir" "$deb_file_url"; then
 		error "Failed to download file ${deb_file_url}"
@@ -67,6 +75,7 @@ update_apt () {
 
 verify_root_privileges
 exit_if_already_completed
+remove_old_deb_file
 get_deb_file
 install_deb_file
 update_apt
