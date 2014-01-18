@@ -3,7 +3,8 @@
 this_file=`basename "$0"`
 deb_file_url="<%= deb_file_url %>"
 deb_file_name="<%= deb_file_name %>"
-deb_file_path="/tmp/${deb_file_name}"
+deb_file_dir="/tmp"
+deb_file_path="${deb_file_dir}/${deb_file_name}"
 
 set -o nounset
 set -o errtrace
